@@ -1,36 +1,78 @@
 //ЦИКЛЫ
 //1.Найти сумму четных чисел и их количество в диапазоне от 1 до 99
 let sum = 0;
+let count = 0;
 for (i = 1; i <= 99; i++) {
   if (i % 2 === 0) {
     sum += i;
+    count++;
   }
-  console.log(sum);
 }
+console.log(`Sum of even numbers: ${sum} `, `Number of even numbers: ${count}`);
 
-//2.Проверить простое ли число? (число называется простым, если оно делится !!!ТОЛЬКО!!! само на себя и на 1)
+//2.Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
 let number = 25;
 
-if (typeof number === "number") {
+if (typeof number === 'number' && number > 0 && number === number) {
   let result = true;
   for (i = 2; i < number - 1; i++) {
     if (number % i === 0) {
-      console.log("Number is not prime");
+      console.log('Number is not prime');
       result = false;
       break;
     }
   }
   if (result) {
-    console.log("Number is prime");
+    console.log('Number is prime');
   }
 }
 
 //3.Найти корень натурального числа с точностью до целого (рассмотреть вариант последовательного подбора и метод бинарного поиска)
 let number = 22;
 
-let result = Math.round(Math.sqrt(number));
-console.log(result);
+function selectionSqr(number) {
+  if (typeof number === 'number' && number > 0 && number === number) {
+    let sqrNumber = 0;
+    for (i = 1; i < number; i++) {
+      if (i * i < number) {
+        sqrNumber = i;
+      }
+      console.log(
+        `Integer root of a natural number(Selection method)  ${sqrNumber}`
+      );
+    }
+  }
+}
+selectionSqr(number);
+/*
+function binarySort(number) {
+  if (number == 0 || number == 1) {
+    return number;
+  }
+  if (typeof number === 'number' && number > 0 && number === number) {
+    let firstNum = 1;
+    let lastNum = number;
+    let value = 0;
+    while (firstNum < lastNum) {
+      let medNum = Math.round(lastNum / 2);
+      if (medNum * medNum > number) {
+        lastNum = medNum;
+        console.log(lastNum);
+      } else if (medNum * medNum < number) {
+        value = medNum;
+        console.log(value);
+      } else {
+        console.log(value);
+      }
+    }
+    console.log(value);
+  }
+}
+binarySort(21);
 
+let result = Math.sqrt(number);
+console.log('Result: ' + result);
+*/
 //4.Вычислить факториал числа n. n! = 1*2*…*n-1*n;
 function factorial(num) {
   return num != 1 ? num * factorial(num - 1) : 1;
@@ -41,7 +83,7 @@ factorial(7);
 function getNumbersSum(num) {
   return num
     .toString()
-    .split("")
+    .split('')
     .reduce(function (a, b) {
       return +a + +b;
     });
@@ -50,26 +92,6 @@ getNumbersSum(2021);
 
 //6.Вывести число, которое является зеркальным отображением последовательности цифр заданного числа, например, задано число 123, вывести 321.
 function mirrorNum(num) {
-  return +num.toString().split("").reverse().join("");
+  return +num.toString().split('').reverse().join('');
 }
 mirrorNum(123);
-
-//ОДНОМЕРНЫЕ МАССИВЫ
-//1.Найти минимальный элемент массива
-//2.Найти максимальный элемент массива
-//3.Найти индекс минимального элемента массива
-//4.Найти индекс максимального элемента массива
-//5.Посчитать сумму элементов массива с нечетными индексами
-//6.Сделать реверс массива (массив в обратном направлении)
-//7.Посчитать количество нечетных элементов массива
-//8.Поменять местами первую и вторую половину массива, например, для массива 1 2 3 4, результат 3 4 1 2
-//9.Отсортировать массив (пузырьком (Bubble), выбором (Select), вставками (Insert))
-//*10.Отсортировать массив (Quick, Merge, Shell, Heap)
-
-//ФУНКЦИИ
-//1.Получить строковое название дня недели по номеру дня.
-//2.Найти расстояние между двумя точками в двухмерном декартовом пространстве.
-//3.Вводим число(0-999), получаем строку с прописью числа.
-//4.Вводим строку, которая содержит число, написанное прописью (0-999). Получить само число
-//*6.Для задания 2 расширить диапазон до 999 миллиардов
-//*7.Для задания 3 расширить диапазон до 999 миллиардов
