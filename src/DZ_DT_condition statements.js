@@ -11,12 +11,7 @@ let pointX = 10;
 let pointY = -10;
 
 function searchPoint(pointX, pointY) {
-  if (
-    typeof pointX === 'number' &&
-    typeof pointY === 'number' &&
-    pointX === pointX &&
-    pointY === pointY
-  ) {
+  if (typeof pointX === 'number' && typeof pointY === 'number' && pointX === pointX && pointY === pointY) {
     switch (true) {
       case pointX > 0 && pointY > 0:
         console.log('First quarter');
@@ -55,16 +50,9 @@ let a = 1;
 let b = 3;
 let c = 5;
 function expression(a, b, c) {
-  if (
-    typeof a === 'number' &&
-    a === a &&
-    typeof b === 'number' &&
-    b === b &&
-    typeof c === 'number' &&
-    c === c
-  ) {
-    let result = Math.max(a + b + c, a * b * c) + 3;
-    console.log(result);
+  if (typeof a === 'number' && a === a && typeof b === 'number' && b === b && typeof c === 'number' && c === c) {
+    let result2 = a + b + c < a * b * c ? a * b * c + 3 : a + b + c + 3;
+    console.log(result2);
   }
 }
 expression(a, b, c);

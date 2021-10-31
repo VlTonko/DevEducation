@@ -37,49 +37,82 @@ function selectionSqr(number) {
       if (i * i < number) {
         sqrNumber = i;
       }
-      console.log(
-        `Integer root of a natural number(Selection method)  ${sqrNumber}`
-      );
+      console.log(`Integer root of a natural number(Selection method)  ${sqrNumber}`);
     }
   }
 }
 selectionSqr(number);
-/*
-function binarySort(number) {
-  if (number == 0 || number == 1) {
-    return number;
-  }
+
+function benarySqrt(number) {
+  if (number == 0 || number == 1) return number;
   if (typeof number === 'number' && number > 0 && number === number) {
     let firstNum = 1;
     let lastNum = number;
-    let value = 0;
-    while (firstNum < lastNum) {
-      let medNum = Math.round(lastNum / 2);
-      if (medNum * medNum > number) {
-        lastNum = medNum;
-        console.log(lastNum);
-      } else if (medNum * medNum < number) {
-        value = medNum;
-        console.log(value);
-      } else {
-        console.log(value);
+    let saved = 0;
+    while (true) {
+      let medNum = Math.floor((firstNum + lastNum) / 2);
+      switch (true) {
+        case saved === medNum:
+          return medNum;
+        case number === medNum * medNum:
+          return medNum;
+        case number < medNum * medNum:
+          lastNum = medNum;
+          break;
+        default: {
+          firstNum = medNum;
+          saved = medNum;
+        }
       }
     }
-    console.log(value);
   }
 }
-binarySort(21);
+benarySqrt(22);
 
-let result = Math.sqrt(number);
-console.log('Result: ' + result);
-*/
 //4.Вычислить факториал числа n. n! = 1*2*…*n-1*n;
 function factorial(num) {
+  if (typeof num === 'number' && num > 0 && num === num) {
+    let result = 1;
+    for (i = 1; i <= num; i++) {
+      result *= i;
+    }
+    console.log(result);
+  }
+}
+
+function factorial2(num) {
   return num != 1 ? num * factorial(num - 1) : 1;
 }
-factorial(7);
 
-//5.Посчитать сумму цифр заданного числа
+factorial(7);
+factorial2(7);
+
+//5.1. Сумма чисел - если от 1 до "заданного":
+function sumNum(num) {
+  if (typeof num === 'number' && num > 0 && num === num) {
+    let result = 1;
+    for (i = 1; i <= num; i++) {
+      result += i;
+    }
+    console.log(result);
+  }
+}
+sumNum(5);
+
+//5.1. Сумма чисел - если это сумма составных чисел:
+function sumNum2(num) {
+  if (typeof num === 'number' && num > 0 && num === num) {
+    let splitArr = num.toString().split('');
+    let result = 0;
+    for (i = 0; i < splitArr.length; i++) {
+      result += Number(splitArr[i]);
+    }
+    console.log(result);
+  }
+}
+sumNum2(22);
+
+//5.3. Посчитать сумму цифр заданного числа
 function getNumbersSum(num) {
   return num
     .toString()
@@ -92,6 +125,18 @@ getNumbersSum(2021);
 
 //6.Вывести число, которое является зеркальным отображением последовательности цифр заданного числа, например, задано число 123, вывести 321.
 function mirrorNum(num) {
-  return +num.toString().split('').reverse().join('');
+  let splitArr = num.toString().split('');
+  console.log(splitArr);
+  let mirArr = [];
+  for (i = splitArr.length - 1; i >= 0; i--) {
+    mirArr.push(splitArr[i]);
+  }
+  let resultStr = mirArr.join('');
+  console.log(resultStr);
 }
 mirrorNum(123);
+
+function mirrorNum2(num) {
+  return +num.toString().split('').reverse().join('');
+}
+mirrorNum2(123);
