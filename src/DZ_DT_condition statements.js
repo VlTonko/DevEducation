@@ -2,7 +2,7 @@
 //1. Если а - четное посчитать а*б, иначе а+б
 let a = 2;
 let b = 6;
-let result = a % 0 === 0 ? a * b : a + b;
+let result = a % 2 === 0 ? a * b : a + b;
 
 console.log(result);
 
@@ -51,8 +51,7 @@ let b = 3;
 let c = 5;
 function expression(a, b, c) {
   if (typeof a === 'number' && a === a && typeof b === 'number' && b === b && typeof c === 'number' && c === c) {
-    let result2 = a + b + c < a * b * c ? a * b * c + 3 : a + b + c + 3;
-    console.log(result2);
+    return a + b + c < a * b * c ? a * b * c + 3 : a + b + c + 3;
   }
 }
 expression(a, b, c);

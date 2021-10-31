@@ -37,8 +37,8 @@ function selectionSqr(number) {
       if (i * i < number) {
         sqrNumber = i;
       }
-      console.log(`Integer root of a natural number(Selection method)  ${sqrNumber}`);
     }
+    return `Integer root of a natural number(Selection method)  ${sqrNumber}`;
   }
 }
 selectionSqr(number);
@@ -80,12 +80,7 @@ function factorial(num) {
   }
 }
 
-function factorial2(num) {
-  return num != 1 ? num * factorial(num - 1) : 1;
-}
-
 factorial(7);
-factorial2(7);
 
 //5.1. Сумма чисел - если от 1 до "заданного":
 function sumNum(num) {
@@ -112,31 +107,16 @@ function sumNum2(num) {
 }
 sumNum2(22);
 
-//5.3. Посчитать сумму цифр заданного числа
-function getNumbersSum(num) {
-  return num
-    .toString()
-    .split('')
-    .reduce(function (a, b) {
-      return +a + +b;
-    });
-}
-getNumbersSum(2021);
-
 //6.Вывести число, которое является зеркальным отображением последовательности цифр заданного числа, например, задано число 123, вывести 321.
 function mirrorNum(num) {
-  let splitArr = num.toString().split('');
-  console.log(splitArr);
-  let mirArr = [];
-  for (i = splitArr.length - 1; i >= 0; i--) {
-    mirArr.push(splitArr[i]);
+  if (typeof num === 'number' && num > 0 && num === num) {
+    let splitArr = num.toString().split('');
+    let mirArr = [];
+    for (i = splitArr.length - 1; i >= 0; i--) {
+      mirArr.push(splitArr[i]);
+    }
+    let resultStr = mirArr.join('');
+    return +resultStr;
   }
-  let resultStr = mirArr.join('');
-  console.log(resultStr);
 }
 mirrorNum(123);
-
-function mirrorNum2(num) {
-  return +num.toString().split('').reverse().join('');
-}
-mirrorNum2(123);
