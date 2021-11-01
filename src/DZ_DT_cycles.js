@@ -69,6 +69,33 @@ function benarySqrt(number) {
 }
 benarySqrt(22);
 
+selectionSqr2(number);
+
+function benarySqrt(number) {
+  if (number == 0 || number == 1) return number;
+  if (typeof number === 'number' && number > 0 && number === number) {
+    let firstNum = 1;
+    let lastNum = number;
+    while (firstNum < lastNum) {
+      let medNum = Math.floor((firstNum + lastNum) / 2);
+      switch (true) {
+        case saved === medNum:
+          return medNum;
+        case number === medNum * medNum:
+          return medNum;
+        case number < medNum * medNum:
+          lastNum = medNum;
+          break;
+        default: {
+          firstNum = medNum;
+          saved = medNum;
+        }
+      }
+    }
+  }
+}
+benarySqrt2(22);
+
 //4.Вычислить факториал числа n. n! = 1*2*…*n-1*n;
 function factorial(num) {
   if (typeof num === 'number' && num > 0 && num === num) {
