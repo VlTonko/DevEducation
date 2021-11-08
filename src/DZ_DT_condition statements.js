@@ -1,10 +1,9 @@
 //УСЛОВНЫЕ ОПЕРАТОРЫ
 //1. Если а - четное посчитать а*б, иначе а+б
-let a = 2;
-let b = 6;
-let result = a % 2 === 0 ? a * b : a + b;
-
-console.log(result);
+function evenOdd(a, b) {
+  return a % 2 === 0 ? a * b : a + b;
+}
+evenOdd(2, 5);
 
 //2.Определить какой четверти принадлежит точка с координатами (х,у)
 let pointX = 10;
