@@ -45,53 +45,35 @@ function sumPositivNum(arr){
 sumPositivNum([true, -3, 5]);
 
 //4.Посчитать выражение (макс(а*б*с, а+б+с))+3
-let a = 1;
-let b = 3;
-let c = 5;
 function expression(a, b, c) {
   if (typeof a === 'number' && a === a && typeof b === 'number' && b === b && typeof c === 'number' && c === c) {
     return a + b + c < a * b * c ? a * b * c + 3 : a + b + c + 3;
   }
 }
-expression(a, b, c);
+expression(1, 3, 5);
 
 //5.Написать программу определения оценки студента по его рейтингу, на основе следующих правил
 // Рейтинги       0-19  F      20-39  E       40-59  D     60-74  C     75-89  B     90-100  A
-let rating = 26;
-
 function defineGrade(rating) {
   if (typeof rating !== 'number' || rating < 0 || rating > 100) {
     return;
   }
 
-  let grade = '';
   switch (true) {
     case rating >= 0 && rating <= 19:
-      grade = 'F';
-      console.log(grade);
-      break;
+      return 'F';
     case rating >= 20 && rating <= 39:
-      grade = 'E';
-      console.log(grade);
-      break;
+      return 'E';
     case rating >= 40 && rating <= 59:
-      grade = 'D';
-      console.log(grade);
-      break;
+      return 'D';
     case rating >= 60 && rating <= 74:
-      grade = 'C';
-      console.log(grade);
-      break;
+      return 'C';
     case rating >= 75 && rating <= 89:
-      grade = 'B';
-      console.log(grade);
-      break;
+      return 'B';
     case rating >= 90 && rating <= 100:
-      grade = 'A';
-      console.log(grade);
-      break;
+      return 'A';
     default:
-      console.log('Not a number');
+      return 'Not a number';
   }
 }
-defineGrade(rating);
+defineGrade(5);
