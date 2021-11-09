@@ -62,7 +62,7 @@
     });
         
     /**------------------------Rating of the student by rating'--------------------------------*/
-    describe('rating of the student by rating', () => {
+    describe('Rating of the student by rating', () => {
 
         it('Raiting student - F', () => {
             expect(defineGrade(5)).to.be.equal('F');
