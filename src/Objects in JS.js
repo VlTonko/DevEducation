@@ -1,9 +1,11 @@
 //1.Составьте алгоритм, который считает, сколько времени вам нужно на приготовление яиц.Правила:-Яйца варить 5 минут-Вместительность емкости не более 5 яиц одновременно
 function getCookingTime(eggsAmount) {
-  const timeCooking = 5;
-  const capacity = 5;
-  const result = Math.ceil(eggsAmount / capacity) * timeCooking;
-  return result;
+  if (typeof eggsAmount === 'number') {
+    const timeCooking = 5;
+    const capacity = 5;
+    const result = Math.ceil(eggsAmount / capacity) * timeCooking;
+    return result;
+  }
 }
 getCookingTime(0);
 getCookingTime(5);
@@ -11,14 +13,16 @@ getCookingTime(9);
 
 //2.Получая массив чисел. Все они либо нечетные, либо четные, кроме одного. Тебе нужно его найти.
 function getNumber(array) {
-  let result;
-  let parityArr = parityCheckArr(array);
-  if (parityArr === 'even') {
-    result = array.filter((el) => el % 2 !== 0);
-  } else {
-    result = array.filter((el) => el % 2 === 0);
+  if (Array.isArray(array)) {
+    let result;
+    let parityArr = parityCheckArr(array);
+    if (parityArr === 'even') {
+      result = array.filter((el) => el % 2 !== 0);
+    } else {
+      result = array.filter((el) => el % 2 === 0);
+    }
+    return result;
   }
-  return result;
 }
 
 function parityCheckArr(arr) {
@@ -45,6 +49,7 @@ function findTitle(arr, str) {
 }
 
 let arr = [{ title: 'Some title1' }, { title: 'I like JS' }, { user: 'This obj doesn’t have key title js' }, { title: 'Js - is the best!' }];
+
 findTitle(arr, 'js'); // return [{ title: 'I like JS'}, { title: 'Js - is the best!' }]
 
 //4. Принимая строку, ваша функция должна вернуть обьект, в котором ключи – символы строки, значение – количество повторений символов в строке
@@ -93,14 +98,16 @@ countCharacters('a 2ab !d');
 
 //5. Принимая число, ваша функция должна найти следующий положительный палиндром большего размера.Палиндром - это слово, фраза, число или другая последовательность символов, которая читается так же, как вперед и назад, например, «мадам».
 function getNextPalindrome(n) {
-  if (n < 10) {
-    return 11;
-  }
-  let result = n++;
-  for (i = n; i !== result; i++) {
-    result = Number(i.toString().split('').reverse().join(''));
-    if (i === result) {
-      return result;
+  if (typeof n === 'number') {
+    if (n < 10) {
+      return 11;
+    }
+    let result = n++;
+    for (i = n; i !== result; i++) {
+      result = Number(i.toString().split('').reverse().join(''));
+      if (i === result) {
+        return result;
+      }
     }
   }
 }
