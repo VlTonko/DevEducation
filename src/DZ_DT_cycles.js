@@ -1,27 +1,27 @@
 //ЦИКЛЫ
 //1.Найти сумму четных чисел и их количество в диапазоне от 1 до 99
-function sumNumbers (num){
+function sumNumbers(num) {
   let sum = 0;
   let count = 0;
-    for (i = 1; i <= num; i++) {
-      if (i % 2 === 0) {
-        sum += i;
-        count++;
-      }
+  for (i = 1; i <= num; i++) {
+    if (i % 2 === 0) {
+      sum += i;
+      count++;
     }
+  }
   return `Sum of even numbers: ${sum}, Number of even numbers: ${count}`;
 }
 sumNumbers(99);
 
 //2.Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
-function numberIsPrime(number){
+function numberIsPrime(number) {
   if (typeof number === 'number' && number > 0 && number === number) {
     for (i = 2; i < number - 1; i++) {
       if (number % i === 0) {
         return 'Number is not prime';
       }
     }
-      return'Number is prime';
+    return 'Number is prime';
   }
 }
 numberIsPrime(25);
@@ -35,7 +35,7 @@ function selectionSqr(number) {
         sqrNumber = i;
       }
     }
-    return `Integer root of a natural number(Selection method)  ${sqrNumber}`;
+    return `Integer root of a natural number(Selection method) ${sqrNumber}`;
   }
 }
 selectionSqr(22);
@@ -66,33 +66,6 @@ function benarySqrt(number) {
 }
 benarySqrt(22);
 
-selectionSqr2(number);
-
-function benarySqrt(number) {
-  if (number == 0 || number == 1) return number;
-  if (typeof number === 'number' && number > 0 && number === number) {
-    let firstNum = 1;
-    let lastNum = number;
-    while (firstNum < lastNum) {
-      let medNum = Math.floor((firstNum + lastNum) / 2);
-      switch (true) {
-        case saved === medNum:
-          return medNum;
-        case number === medNum * medNum:
-          return medNum;
-        case number < medNum * medNum:
-          lastNum = medNum;
-          break;
-        default: {
-          firstNum = medNum;
-          saved = medNum;
-        }
-      }
-    }
-  }
-}
-benarySqrt2(22);
-
 //4.Вычислить факториал числа n. n! = 1*2*…*n-1*n;
 function factorial(num) {
   if (typeof num === 'number' && num > 0 && num === num) {
@@ -100,7 +73,7 @@ function factorial(num) {
     for (i = 1; i <= num; i++) {
       result *= i;
     }
-    console.log(result);
+    return result;
   }
 }
 
@@ -113,7 +86,7 @@ function sumNum(num) {
     for (i = 1; i <= num; i++) {
       result += i;
     }
-    console.log(result);
+    return result;
   }
 }
 sumNum(5);
@@ -126,7 +99,7 @@ function sumNum2(num) {
     for (i = 0; i < splitArr.length; i++) {
       result += Number(splitArr[i]);
     }
-    console.log(result);
+    return result;
   }
 }
 sumNum2(22);

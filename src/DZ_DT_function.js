@@ -5,7 +5,7 @@ function dayOfWeek(day) {
     return;
   }
   arrWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sunday', 'Wednesday'];
-  console.log(arrWeek[day - 1]);
+  return arrWeek[day - 1];
 }
 dayOfWeek(4);
 
@@ -42,11 +42,6 @@ function dayOfWeek2(day) {
 dayOfWeek2(2);
 
 //2.Найти расстояние между двумя точками в двухмерном декартовом пространстве.
-let pointX1 = -1;
-let pointY1 = -3;
-let pointX2 = 10;
-let pointY2 = 10;
-
 function distance(pointX1, pointY1, pointX2, pointY2) {
   let legOne;
   let legTwo;
@@ -61,10 +56,9 @@ function distance(pointX1, pointY1, pointX2, pointY2) {
   } else {
     legTwo = pointY1 - pointY2;
   }
-  hypotenuse = Math.sqrt(Math.pow(legOne, 2) + Math.pow(legTwo, 2)).toFixed(2);
-  console.log(hypotenuse);
+  return (hypotenuse = Number(Math.sqrt(Math.pow(legOne, 2) + Math.pow(legTwo, 2)).toFixed(0)));
 }
-distance(pointX1, pointY1, pointX2, pointY2);
+distance(-1, -3, 10, 10);
 
 //3.Вводим число(0-999), получаем строку с прописью числа.
 
@@ -87,7 +81,7 @@ function convertTens(num) {
     return tens[Math.floor(num / 10)] + ' ' + ones[num % 10];
   }
 }
-console.log(convertHundreds(999));
+convertHundreds(999);
 
 //4.Вводим строку, которая содержит число, написанное прописью (0-999). Получить само число
 
