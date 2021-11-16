@@ -1,35 +1,32 @@
 //ЦИКЛЫ
 //1.Найти сумму четных чисел и их количество в диапазоне от 1 до 99
-let sum = 0;
-let count = 0;
-for (i = 1; i <= 99; i++) {
-  if (i % 2 === 0) {
-    sum += i;
-    count++;
-  }
-}
-console.log(`Sum of even numbers: ${sum} `, `Number of even numbers: ${count}`);
-
-//2.Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
-let number = 25;
-
-if (typeof number === 'number' && number > 0 && number === number) {
-  let result = true;
-  for (i = 2; i < number - 1; i++) {
-    if (number % i === 0) {
-      console.log('Number is not prime');
-      result = false;
-      break;
+function sumNumbers(num) {
+  let sum = 0;
+  let count = 0;
+  for (i = 1; i <= num; i++) {
+    if (i % 2 === 0) {
+      sum += i;
+      count++;
     }
   }
-  if (result) {
-    console.log('Number is prime');
+  return `Sum of even numbers: ${sum}, Number of even numbers: ${count}`;
+}
+sumNumbers(99);
+
+//2.Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
+function numberIsPrime(number) {
+  if (typeof number === 'number' && number > 0 && number === number) {
+    for (i = 2; i < number - 1; i++) {
+      if (number % i === 0) {
+        return 'Number is not prime';
+      }
+    }
+    return 'Number is prime';
   }
 }
+numberIsPrime(25);
 
 //3.Найти корень натурального числа с точностью до целого (рассмотреть вариант последовательного подбора и метод бинарного поиска)
-let number = 22;
-
 function selectionSqr(number) {
   if (typeof number === 'number' && number > 0 && number === number) {
     let sqrNumber = 0;
@@ -38,10 +35,10 @@ function selectionSqr(number) {
         sqrNumber = i;
       }
     }
-    return `Integer root of a natural number(Selection method)  ${sqrNumber}`;
+    return `Integer root of a natural number(Selection method) ${sqrNumber}`;
   }
 }
-selectionSqr(number);
+selectionSqr(22);
 
 function benarySqrt(number) {
   if (number == 0 || number == 1) return number;
@@ -69,33 +66,6 @@ function benarySqrt(number) {
 }
 benarySqrt(22);
 
-selectionSqr2(number);
-
-function benarySqrt(number) {
-  if (number == 0 || number == 1) return number;
-  if (typeof number === 'number' && number > 0 && number === number) {
-    let firstNum = 1;
-    let lastNum = number;
-    while (firstNum < lastNum) {
-      let medNum = Math.floor((firstNum + lastNum) / 2);
-      switch (true) {
-        case saved === medNum:
-          return medNum;
-        case number === medNum * medNum:
-          return medNum;
-        case number < medNum * medNum:
-          lastNum = medNum;
-          break;
-        default: {
-          firstNum = medNum;
-          saved = medNum;
-        }
-      }
-    }
-  }
-}
-benarySqrt2(22);
-
 //4.Вычислить факториал числа n. n! = 1*2*…*n-1*n;
 function factorial(num) {
   if (typeof num === 'number' && num > 0 && num === num) {
@@ -103,7 +73,7 @@ function factorial(num) {
     for (i = 1; i <= num; i++) {
       result *= i;
     }
-    console.log(result);
+    return result;
   }
 }
 
@@ -116,7 +86,7 @@ function sumNum(num) {
     for (i = 1; i <= num; i++) {
       result += i;
     }
-    console.log(result);
+    return result;
   }
 }
 sumNum(5);
@@ -129,7 +99,7 @@ function sumNum2(num) {
     for (i = 0; i < splitArr.length; i++) {
       result += Number(splitArr[i]);
     }
-    console.log(result);
+    return result;
   }
 }
 sumNum2(22);
