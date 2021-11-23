@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,600;1,600&family=Concert+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="container">
+		<div class="create">
+			<label for="listValue">Provide a value for the linkedlist node being created</label>
+			<input type="text" id="inputValue" name="<inputValue" autofocus>
+			<button id="createdBtn">Created node</button>
+		</div>
+
+		<div class="remove">
+			<label for="removeElement">Remove element by value</label>
+			<input type="text" id="removeValue" name="<removeValue">
+			<button id="removeBtnVal">Remove by value</button>
+		</div>
+
+		<div class="remove">
+			<label for="removeId">Remove element by index</label>
+			<input type="text" id="removeId" name="<removeId">
+			<button id="removeBtnId">Remove by index</button>
+		</div>
+
+		<div class="remove">
+			<button id="removeBtnLast">Remove last node</button>
+		</div>
+
+	</div>
+
+	<h1 >Singly Linked List</h1>
+	<div id="lists">
+		<div class="temp"></div><p class="next"></p>
+	</div>
+
+	<script type="text/javascript" src="linkedList.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="object.js"></script>
+</body>
+</html>
