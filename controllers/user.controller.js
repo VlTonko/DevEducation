@@ -1,14 +1,20 @@
 const validators = require('./validation');
 const userRepository = require('../database/repositories/user.repository');
+const { getUserById } = require('../database/repositories/user.repository');
+const customDbError = require('../error/customError');
 
-const createUser = async (body) => {
-  const { value, error } = validators.validate(body, validators.userValidator);
-  if (error) return { error };
-
-  const { error: dbError } = await userRepository.createUser(value.email, value.name);
-
-  if (dbError) return { error: { status: 500, data: { error } } };
-  return { result: { data: { created: 1 }, status: 201 } };
+const getUserByIdController = async id => {
+    try {
+        const { result, error } = await getUserById(id);
+        if (!result) {
+            console.log(error);
+            return { error: error };
+        }
+        return result;
+    } catch (err) {
+        console.error('getUserById repo: ', err);
+        return new customDbError('Not valid request to users dataBases', err);
+    }
 };
 
-module.exports = { createUser };
+module.exports = { getUserByIdController };

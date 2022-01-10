@@ -1,11 +1,16 @@
 const pgClient = require('../index');
-const customError = require('../../error/customError');
+const customDbError = require('../../error/customError');
 
-exports.createUser = async (email, name) => {
+exports.getUserById = async id => {
     try {
-        await pgClient.query(`INSERT INTO users(email, name) VALUES ('${email}', '${name}')`);
-        return { result: true };
+        const result = await pgClient.query(`SELECT * FROM users WHERE id = ${id}`);
+        let mess = result.rowCount;
+        if (mess === 0) {
+            return { error: new customDbError('Not valid request to users dataBases') };
+        }
+        return result;
     } catch (err) {
-        return new customError('Something went wrong!');
+        console.error('getUserById repo: ', err);
+        return new customDbError('Not valid request to users dataBases', err);
     }
 };
